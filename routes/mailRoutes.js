@@ -4,7 +4,6 @@ const emailTemplate = require('../services/emailTemplate');
 module.exports = app => {
 
     app.post('/contact/send', async (req,res) => {
-        console.log(req.body);
         const { name, address, subject, message } = req.body;
 
         
