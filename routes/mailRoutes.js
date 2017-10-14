@@ -17,9 +17,9 @@ module.exports = app => {
         const mailer = new Mailer(email, emailTemplate(email));
        
        try{ 
-        await mailer.send();
+       const result = await mailer.send();
         
-        res.send({});
+        res.send({result});
        } catch (err) {
            console.log(err);
            res.status(422).send(err);
