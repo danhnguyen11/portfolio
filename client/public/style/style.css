@@ -53,7 +53,7 @@ a{
 }
 
 #portrait {
-    margin-left: 35%;
+    margin: 0 auto;
     border: 2px solid;
     border-color: black;
 
@@ -103,7 +103,7 @@ hr {
 #img-project{
     border: 1.5px solid;
     border-color: black;
-    height: 215px;
+    height: auto;
 }
 
 #learn{
@@ -117,54 +117,6 @@ hr {
 #learn:visited,
 #learn:hover{
     background-color: rgb(168, 233, 168);
-}
-
-.ReactModalPortal > div {
-    opacity: 0;
-}
-
-.ReactModalPortal .ReactModal__Overlay {
-     transition: opacity 1500ms ease-in-out;;
-     background: rgba(0, 0, 0, 0.15);
-}
-
-.ReactModalPortal .ReactModal__Overlay--after-open {
-    opacity: 1;
-}
-
-.ReactModalPortal .ReactModal__Overlay--before-close {
-    opacity: 0;
-}
-
-#modal-img{
-    border: 2px solid;
-    border-color: black;
-    margin-left: 22%;
-    margin-bottom: 10px;
-    height: 225px;
-    width: 375px;
-}
-
-#title-modal,
-#description-modal,
-#tech-modal {
-    margin-bottom: 10px;
-}
-
-#btn-app{
-    margin-left: 60%;
-    min-width: 115px;
-    min-height: 45px;
-}
-
-#btn-git{
-    margin-right: 50%;
-    min-width: 115px;
-    min-height: 45px;
-}
-
-#title-modal{
-    text-align: center;
 }
 
 #btn-app:focus,
@@ -214,9 +166,7 @@ hr.line-blue-left {
 #btn-cl{
     min-height: 200px;
     min-width: 150px;
-    margin-top: 10px;
-    margin-left: 17%;
-    margin-bottom: 20px;
+    margin: 20px auto;
     transition: all 1s;
     -webkit-transition: all 1s;
     -o-transition: all 1s;
@@ -226,18 +176,13 @@ hr.line-blue-left {
 #btn-rem{
     min-height: 200px;
     min-width: 150px;
-    margin-top: 10px;
-    margin-left: 17%;
-    margin-bottom: 20px;
+    margin: 20px auto;
     transition: all 1s;
     -webkit-transition: all 1s;
     -o-transition: all 1s;
     -moz-transition: all 1s;
 }
 
-.ReactModal__Body--open {
-    overflow: hidden;
-}
 
 #btn-cover-project:focus,
 #btn-cover-project:active,
@@ -301,3 +246,85 @@ hr.line-blue-left {
     margin-left: 33%;
 }
 
+@media (max-width: 576px){
+    .col-sm-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px){
+    #btn-download {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+}
+
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity 500ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.5) !important
+}
+  
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal {
+    display: inline-block;
+    position: unset;
+    background: white;
+    color: black;
+    width: 60% ;
+    outline: none;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+#modal-img {
+    border: 1.5px solid;
+    border-color: black;
+    margin-bottom: 5px;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+#title-modal{
+    margin: 10px auto;
+    font-size: 3.5vw;
+} 
+
+#btn-app-modal,
+#btn-git-modal,
+#btn-close-modal{
+    margin: 7px 5px;
+    width: 100%;
+}
+
+#buttons-modal{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+@media (max-width: 530px){
+    #buttons-modal{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter }  from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { reduxForm } from 'redux-form';
 
 import Projects from './Projects';
@@ -55,5 +55,4 @@ class App extends Component {
 
 export default reduxForm({
     form: 'contactForm',
-    destroyOnUnmount: false
 })(App);

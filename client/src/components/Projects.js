@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import projects from '../utils/projects';
-import customStyles from '../utils/modalConfig';
 
 class Projects extends Component {
     constructor() {
@@ -14,7 +13,6 @@ class Projects extends Component {
         };
 
         this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
 
@@ -32,11 +30,6 @@ class Projects extends Component {
         this.setState({ modalIsOpen: false});
     }
 
-    afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#B40486';
-    }
-
     renderModal(){
         if(!this.state.modalIsOpen){
             return null;
@@ -44,27 +37,22 @@ class Projects extends Component {
             
             <Modal
             isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
+            contentLabel="Projects List"
+            className="modal"
             >
             
             <img src={this.state.Img} alt="modal-img" id="modal-img"/>
+            <hr />
             <h1 id="title-modal" ref={subtitle => this.subtitle = subtitle}>{this.state.Title}</h1>
+            <hr />
             <p id="description-modal"><strong><u>Description</u></strong>: {this.state.Description}</p>
             <p id="tech-modal"><strong><u>Technology</u></strong>: {this.state.Technology}</p>
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <button id="btn-app" className="btn btn-outline-info">Try the App</button>
-                    </div>
-                    <div className="col">
-                        <button id="btn-git" className="btn btn-outline-warning">GitHub</button>
-                    </div>
-                </div>
+            <div id="buttons-modal">
+                <button id="btn-app-modal" className="btn btn-outline-info">Try the App</button>
+                <button id="btn-git-modal" className="btn btn-outline-warning">GitHub</button>
+                <button id="btn-close-modal" className="btn btn-outline-danger" onClick={this.closeModal}>Cancel</button>
             </div>
-            
             
             </Modal>
             
