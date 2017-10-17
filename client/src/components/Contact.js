@@ -27,7 +27,13 @@ class Contact extends Component{
                         <Field key="message" component="textarea" type="text" className="form-control" rows="5" name="message" />
                     </div>
                     <div className="form-group">
-                        <button key="button" className="form-control btn btn-outline-primary">Submit</button>
+                        <button 
+                        key="button" 
+                        className="form-control btn btn-outline-primary"
+                        onClick={(e) => e.preventDefault}
+                        onTouchStart={() => {return false}}
+                        >
+                        Submit</button>
                     </div>
                 </form>
             </div>

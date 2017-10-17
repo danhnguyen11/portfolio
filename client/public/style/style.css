@@ -230,20 +230,24 @@ hr.line-blue-left {
     color: white;
 }
 
+#confirm-box{
+    margin-top: 15px;
+}
+
 #sent-icon{
+    display: inherit;
     color: green;
     font-size: 200px;
-    margin-left: 37%;
-    padding-top: 40px;
+    text-align: center;
 }
 
 #ty-sent{
     text-align: center;
-    padding-top: 20px;
 }
 
 #btn-resend{
-    margin-left: 33%;
+    display: inherit;
+    margin: 0 auto; 
 }
 
 @media (max-width: 576px){

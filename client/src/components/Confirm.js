@@ -10,7 +10,7 @@ class Confirm extends Component {
     
     render(){
         return (
-            <div className="col-md-8 col-sm-12">
+            <div className="col-md-8 col-sm-12" id="confirm-box">
                 <i id="sent-icon" className="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
                 <br />
                 <p id="ty-sent">Thank you! Your message has been sent.</p>
