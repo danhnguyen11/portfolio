@@ -4,11 +4,12 @@ import { reduxForm, Field } from 'redux-form';
 
 
 class Contact extends Component{
-    
+
+       
     render() {
         return(
             <div className="col-md-8 col-sm-12">
-                <form onSubmit={() => this.props.handleSubmit(this.props.onContactSubmit)}>
+                <form onSubmit={() => {this.props.handleSubmit(this.props.onContactSubmit); return false;}}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <Field key="name" component="input" type="text" className="form-control" name="name" />
