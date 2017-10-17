@@ -294,6 +294,22 @@ hr.line-blue-left {
     font-size: 1.5vw;
 }
 
+@media (max-height: 420px){
+    .modal {
+        display: inline-block;
+        position: unset;
+        background: white;
+        color: black;
+        width: 60% ;
+        height: 350px;
+        outline: none;
+        padding: 25px;
+        text-align: center;
+        font-size: 1.5vw;
+        overflow: scroll;
+    }
+}
+
 #modal-img {
     border: 1.5px solid;
     border-color: black;
@@ -327,4 +343,8 @@ hr.line-blue-left {
         justify-content: space-around;
         flex-direction: column;
     }
+}
+
+.ReactModal__Body--open {
+    overflow: hidden;
 }
