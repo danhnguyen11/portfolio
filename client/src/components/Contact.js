@@ -5,33 +5,58 @@ import { reduxForm, Field } from 'redux-form';
 
 class Contact extends Component{
 
+    required = value => value ? undefined : 'Please provide a value!';
+
+    renderField = ({ input, label, type, name, meta: { touched, error} }) => (
+        (type !== "textarea") ?
+        (
+        <div>
+          <label>{label}</label>
+          <div>
+            <input {...input} key={name} placeholder={label} type={type} className="form-control"/>
+            <div style={{marginBottom:'20px',color:'red'}}>
+                {touched && error}
+            </div>
+          </div>
+        </div> ) :
+           (<div>
+           <label>{label}</label>
+           <div>
+             <textarea {...input} key={name} placeholder={label} type={type} className="form-control" rows="5"/>
+             <div style={{marginBottom:'20px',color:'red'}}>
+                 {touched && error}
+             </div>
+           </div>
+         </div> 
+        )
+    )
+    
        
     render() {
+        
+
         return(
             <div className="col-md-8 col-sm-12">
-                <form onSubmit={() => {this.props.handleSubmit(this.props.onContactSubmit); return false;}}>
+                <form 
+                onSubmit={(e) => {e.preventDefault(); this.props.handleSubmit(this.props.onContactSubmit);}}
+                onKeyPress={e => {if(e.key === 'Enter') e.preventDefault();}}
+                >
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <Field key="name" component="input" type="text" className="form-control" name="name" />
+                        <Field component={this.renderField} type="text" label="Name" name="name" validate={this.required}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <Field key="email" component="input" type="email" className="form-control" name="address" />
+                        <Field component={this.renderField} type="email" label="Email" name="email" validate={this.required} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="subject">Subject</label>
-                        <Field key="subject" component="input" type="text" className="form-control" name="subject" />
+                        <Field component={this.renderField} type="text" label="Subject" name="subject" validate={this.required} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="message">Message</label>
-                        <Field key="message" component="textarea" type="text" className="form-control" rows="5" name="message" />
+                        <Field component={this.renderField} type="textarea" label="Message" name="message" validate={this.required}/>
                     </div>
                     <div className="form-group">
                         <button 
                         key="button" 
                         className="form-control btn btn-outline-primary"
-                        onClick={(e) => e.preventDefault}
-                        onTouchStart={() => {return false}}
                         >
                         Submit</button>
                     </div>
